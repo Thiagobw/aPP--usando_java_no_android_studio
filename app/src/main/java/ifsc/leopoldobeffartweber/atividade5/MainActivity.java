@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listagemDeAmigos = (ListView) findViewById(R.id.listaAmigos);
+        listagemDeAmigos = findViewById(R.id.listaAmigos);
 
-        FloatingActionButton btnAddAmigo = (FloatingActionButton) findViewById(R.id.btnAddAmigo);
+        FloatingActionButton btnAddAmigo = findViewById(R.id.btnAddAmigo);
 
 
         btnAddAmigo.setOnClickListener(this::abrirCadastro);

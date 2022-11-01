@@ -20,11 +20,11 @@ public class CadastroAmigosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_amigos);
 
-        EditText edtNome = (EditText) findViewById(R.id.edtNome);
-        EditText  edtTelefone = (EditText) findViewById(R.id.edtTelefone);
-        EditText edtEmail = (EditText) findViewById(R.id.edtEmail);
-        EditText edtAniversario = (EditText) findViewById(R.id.edtData);
-        Button btnAdd = (Button) findViewById(R.id.btnSalvar);
+        EditText edtNome = findViewById(R.id.edtNome);
+        EditText  edtTelefone = findViewById(R.id.edtTelefone);
+        EditText edtEmail = findViewById(R.id.edtEmail);
+        EditText edtAniversario = findViewById(R.id.edtData);
+        Button btnAdd = findViewById(R.id.btnSalvar);
 
         amigosDB = new AmigosDB(CadastroAmigosActivity.this);
 
@@ -48,16 +48,16 @@ public class CadastroAmigosActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Preencha todos os campos para adicionar um amigo!", Toast.LENGTH_LONG).show();
 
                 if (edtNome.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtNome.setShadowLayer(5, 2, 2 , R.color.red);
                 }
                 else if (edtEmail.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtEmail.setShadowLayer(5, 2, 2 , R.color.red);
                 }
                 else if (edtTelefone.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtTelefone.setShadowLayer(5, 2, 2 , R.color.red);
                 }
                 else if (edtAniversario.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtAniversario.setShadowLayer(5, 2, 2 , R.color.red);
                 }
             }
         }); // final onclick

@@ -20,11 +20,11 @@ public class AlterarDadosDoAmigo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alterar_dados_do_amigo);
 
-        EditText edtNome = (EditText) findViewById(R.id.edtNome);
-        EditText  edtTelefone = (EditText) findViewById(R.id.edtTelefone);
-        EditText edtEmail = (EditText) findViewById(R.id.edtEmail);
-        EditText edtAniversario = (EditText) findViewById(R.id.edtData);
-        Button btnAdd = (Button) findViewById(R.id.btnSalvar);
+        EditText edtNome = findViewById(R.id.edtNome);
+        EditText  edtTelefone = findViewById(R.id.edtTelefone);
+        EditText edtEmail = findViewById(R.id.edtEmail);
+        EditText edtAniversario = findViewById(R.id.edtData);
+        Button btnAdd = findViewById(R.id.btnSalvar);
 
         amigos = (Amigos) getIntent().getSerializableExtra("amigo");
 
@@ -32,7 +32,7 @@ public class AlterarDadosDoAmigo extends AppCompatActivity {
 
             if (!edtNome.getText().toString().isEmpty() || !edtEmail.getText().toString().isEmpty() || !edtTelefone.getText().toString().isEmpty() || !edtAniversario.getText().toString().isEmpty()) {
 
-                if (edtNome.getText().toString() != amigos.getNome() || edtEmail.getText().toString() != amigos.getEmail() || edtTelefone.getText().toString() != amigos.getTelefone() || edtAniversario.getText().toString() != amigos.getAniversario()) {
+                if (!edtNome.getText().toString().equals(amigos.getNome()) || !edtEmail.getText().toString().equals(amigos.getEmail()) || !edtTelefone.getText().toString().equals(amigos.getTelefone()) || !edtAniversario.getText().toString().equals(amigos.getAniversario())) {
 
                     amigos = new Amigos();
                     amigos.setNome(edtNome.getText().toString());
@@ -54,16 +54,16 @@ public class AlterarDadosDoAmigo extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Preencha todos os campos para alterar os dados!", Toast.LENGTH_LONG).show();
 
                 if (edtNome.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtNome.setShadowLayer(5, 2, 2 , R.color.red);
                 }
                 else if (edtEmail.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtEmail.setShadowLayer(5, 2, 2 , R.color.red);
                 }
                 else if (edtTelefone.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtTelefone.setShadowLayer(5, 2, 2 , R.color.red);
                 }
                 else if (edtAniversario.getText().toString().isEmpty()) {
-                    //adicionar borda vermelha
+                    edtAniversario.setShadowLayer(5, 2, 2 , R.color.red);
                 }
             }
         }); // final onclick
